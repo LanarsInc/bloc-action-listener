@@ -1,6 +1,6 @@
 name: bloc_action_listener
 description: Package adds a stream to which you can send actions from your Bloc or Cubit and process these actions on the UI similar to a BlocListener
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/LanarsInc/bloc-action-listener
 
 environment:
