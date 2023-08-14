@@ -1,7 +1,5 @@
 [![SWUbanner](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://vshymanskyy.github.io/StandWithUkraine)
 
-Made in [lanars.com](https://lanars.com).
-
 [![pub package](https://img.shields.io/pub/v/bloc_action_listener.svg)](https://pub.dev/packages/bloc_action_listener)
 
 This package extends the capabilities of Bloc and Cubit, adding the functionality to send and process UI actions, similar to the `BlocListener`.
