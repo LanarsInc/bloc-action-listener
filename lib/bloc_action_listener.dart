@@ -11,17 +11,17 @@ typedef BlocWidgetActionListener<A> = void Function(BuildContext context, A acti
 
 class BlocActionListener<B extends ActionsStreamable<A>, A> extends BlocActionListenerBase<B, A> {
   const BlocActionListener({
-    required BlocWidgetActionListener<A> actionListener,
+    required BlocWidgetActionListener<A> listener,
     Key? key,
     B? bloc,
     Widget? child,
-  }) : super(key: key, child: child, actionListener: actionListener, bloc: bloc);
+  }) : super(key: key, child: child, listener: listener, bloc: bloc);
 }
 
 abstract class BlocActionListenerBase<B extends ActionsStreamable<A>, A>
     extends SingleChildStatefulWidget {
   const BlocActionListenerBase({
-    required this.actionListener,
+    required this.listener,
     Key? key,
     this.bloc,
     this.child,
@@ -32,12 +32,12 @@ abstract class BlocActionListenerBase<B extends ActionsStreamable<A>, A>
   final Widget? child;
 
   /// The [bloc] whose `actions` will be listened to.
-  /// When a new action is added from [bloc], the [actionListener] will be called
+  /// When a new action is added from [bloc], the [listener] will be called
   final B? bloc;
 
   /// A [BlocWidgetActionListener] listener that will be called on each new `action`.
-  /// This [actionListener] should be used for any code that needs to be execute
-  final BlocWidgetActionListener<A> actionListener;
+  /// This [listener] should be used for any code that needs to be execute
+  final BlocWidgetActionListener<A> listener;
 
   @override
   SingleChildState<BlocActionListenerBase<B, A>> createState() => _BlocListenerBaseState<B, A>();
@@ -104,7 +104,7 @@ class _BlocListenerBaseState<B extends ActionsStreamable<A>, A>
 
   void _subscribe() {
     _subscription = _bloc.actions.listen((state) {
-      widget.actionListener(context, state);
+      widget.listener(context, state);
     });
   }
 
