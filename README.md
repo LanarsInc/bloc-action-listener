@@ -19,7 +19,7 @@ With the "Bloc Action Listener", you can achieve this more conveniently.
 ### 1. Define your actions
 You can create the actions as needed. These will be dispatched and can be listened to in the UI.
 
-```
+```dart
 abstract class ExampleAction {}
 
 class ShowTestDialogAction extends ExampleAction {
@@ -42,7 +42,7 @@ class ShowSnackbarAction extends ExampleAction {
 ### 2. Extend your Bloc or Cubit
 Use the `BlocActionsMixin` to extend your Bloc or Cubit. This mixin provides the `addAction()` method which allows you to dispatch the defined actions.
 
-```
+```dart
 class ExampleCubit extends Cubit<ExampleState> with BlocActionsMixin<ExampleState, ExampleAction> {
   ExampleCubit() : super(ExampleInitial());
 
@@ -63,9 +63,9 @@ class ExampleCubit extends Cubit<ExampleState> with BlocActionsMixin<ExampleStat
 ## 3. Listen and process actions in the UI
 Using the `BlocActionListener` widget, you can respond to the dispatched actions in the UI.
 
-```
+```dart
 BlocActionListener<ExampleCubit, ExampleAction>(
-  actionListener: (context, action) {
+  listener: (context, action) {
     if (action is ShowTestDialogAction) {
       final title = action.title;
       final content = action.content;

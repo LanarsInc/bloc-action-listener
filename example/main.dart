@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
       body: BlocProvider(
         create: (_) => ExampleCubit(),
         child: BlocActionListener<ExampleCubit, ExampleAction>(
-          actionListener: (context, action) {
+          listener: (context, action) {
             if (action is ShowTestDialogAction) {
               final title = action.title;
               final content = action.content;
