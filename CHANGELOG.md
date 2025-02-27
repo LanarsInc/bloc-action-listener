@@ -1,3 +1,7 @@
+## 1.0.3 - 27.02.2025
+
+* Fix `Bad state: Cannot add new events after calling close`.
+
 ## 1.0.2 - 07.09.2023
 
 * Rename `actionListener` parameter to `listener`.
