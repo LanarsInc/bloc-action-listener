@@ -12,7 +12,7 @@ mixin BlocActionsMixin<State, Action> on BlocBase<State> implements ActionsStrea
 
   @protected
   void addAction(Action action) {
-    _actions.add(action);
+    if (!isClosed && !_actions.isClosed) _actions.add(action);
   }
 
   @mustCallSuper
