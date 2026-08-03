@@ -18,8 +18,7 @@ class BlocActionListener<B extends ActionsStreamable<A>, A> extends BlocActionLi
   }) : super(key: key, child: child, listener: listener, bloc: bloc);
 }
 
-abstract class BlocActionListenerBase<B extends ActionsStreamable<A>, A>
-    extends SingleChildStatefulWidget {
+abstract class BlocActionListenerBase<B extends ActionsStreamable<A>, A> extends SingleChildStatefulWidget {
   const BlocActionListenerBase({
     required this.listener,
     Key? key,
@@ -43,8 +42,7 @@ abstract class BlocActionListenerBase<B extends ActionsStreamable<A>, A>
   SingleChildState<BlocActionListenerBase<B, A>> createState() => _BlocListenerBaseState<B, A>();
 }
 
-class _BlocListenerBaseState<B extends ActionsStreamable<A>, A>
-    extends SingleChildState<BlocActionListenerBase<B, A>> {
+class _BlocListenerBaseState<B extends ActionsStreamable<A>, A> extends SingleChildState<BlocActionListenerBase<B, A>> {
   StreamSubscription<A>? _subscription;
   late B _bloc;
 
