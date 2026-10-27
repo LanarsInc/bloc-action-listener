@@ -1,4 +1,4 @@
-library bloc_action_listener;
+library;
 
 import 'dart:async';
 
@@ -11,20 +11,20 @@ typedef BlocWidgetActionListener<A> = void Function(BuildContext context, A acti
 
 class BlocActionListener<B extends ActionsStreamable<A>, A> extends BlocActionListenerBase<B, A> {
   const BlocActionListener({
-    required BlocWidgetActionListener<A> listener,
-    Key? key,
-    B? bloc,
-    Widget? child,
-  }) : super(key: key, child: child, listener: listener, bloc: bloc);
+    required super.listener,
+    super.key,
+    super.bloc,
+    super.child,
+  });
 }
 
 abstract class BlocActionListenerBase<B extends ActionsStreamable<A>, A> extends SingleChildStatefulWidget {
   const BlocActionListenerBase({
     required this.listener,
-    Key? key,
+    super.key,
     this.bloc,
     this.child,
-  }) : super(key: key, child: child);
+  }) : super(child: child);
 
   /// The widget which will be rendered as a descendant of the
   /// [BlocActionListenerBase].
@@ -102,6 +102,7 @@ class _BlocListenerBaseState<B extends ActionsStreamable<A>, A> extends SingleCh
 
   void _subscribe() {
     _subscription = _bloc.actions.listen((state) {
+      if (!mounted) return;
       widget.listener(context, state);
     });
   }
