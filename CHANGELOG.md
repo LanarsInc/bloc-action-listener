@@ -1,3 +1,9 @@
+## 1.1.1 - 27.10.2026
+
+* Fix static analysis issues reported by pub.dev:
+    * Remove the unnecessary library name.
+    * Use super parameters in widget constructors.
+
 ## 1.1.0 - 03.08.2026
 
 * Upgraded dependency constraints:
